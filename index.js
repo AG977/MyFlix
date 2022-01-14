@@ -30,7 +30,7 @@ let topMovies = [
   {
     title: 'Madagascar: Escape 2 Africa',
     Directors: 'Tom McGrath, Eric Darnell'
-  }
+  },
   {
     title: 'Shrek',
     Directors: 'Vicky Jenson, Andrew Adamson'
@@ -42,7 +42,7 @@ let topMovies = [
   {
     title: 'Kung Fu Panda',
     Directors: 'Mark Osborne, John Stevenson'
-  }
+  },
   {
     title: 'Kung Fu Panda 2',
     Directors: 'Jennifer Yuh Nelson'
@@ -54,7 +54,7 @@ let topMovies = [
   {
     title: 'Pirates of the Caribbean: The Curse of the Black Pearl',
     Directors: 'Gore Verbinski'
-  }
+  },
   {
     title: 'Home Alone',
     Directors: 'Chris Columbus'
