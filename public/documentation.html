@@ -18,6 +18,7 @@
         Users will be able to sign up, update their personal information, and create a list of their favorite movies.
       </p>
     </div>
+
     <table>
       <tr>
         <th>Request</th>
@@ -26,6 +27,48 @@
         <th>Request body data format</th>
         <th>Response body data format</th>
       </tr>
+
+      <tr>
+        <td>Get a list of Movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about all the Movies</td>
+      </tr>
+
+      <tr>
+        <td>Get data about a single Movie by title</td>
+        <td>/movies/[title]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about a single Movie, cntaining the Title, Description, Genre, Directors, and an image. For example:
+            {
+              Name:"Madagascar",
+              Description:"A group of animals who have spent all their life in a New York zoo end up in the jungles of Madagascar, and must adjust to living in the wild.",
+              Genre:"Family/Comedy",
+              Directors:"Tom McGrath, Eric Darnell"
+            }
+        </td>
+      </tr>
+
+      <tr>
+        <td>Get data about a genre</td>
+        <td>/movies/[genre]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about the titles of the movies corresponding to the different genre's. For example:
+          {
+            Genre:"Family/Comedy"
+            corresponding title's:"Madagascar"
+          }
+        </td>
+      </tr>
+
+
+
+
+
+
     </table>
   </body>
 </html>
