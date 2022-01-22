@@ -3,7 +3,8 @@ const express = require('express'),
 
 const app = express();
 const bodyParser = require('body-parser'),
-  methodOverride = require('method-override');
+  methodOverride = require('method-override'),
+  uuid = require("uuid");
 
 app.use(morgan('common'));
 app.use(bodyParser.urlencoded({

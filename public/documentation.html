@@ -58,17 +58,88 @@
         <td>None</td>
         <td>A JSON object holding data about the titles of the movies corresponding to the different genre's. For example:
           {
-            Genre:"Family/Comedy"
+            Genre:"Family/Comedy",
             corresponding title's:"Madagascar"
           }
         </td>
       </tr>
 
+      <tr>
+        <td>Get data about a director</td>
+        <td>/movies/[Director]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about a single Director, containg: Name, Bio, Date of Birth/Death. For example:
+          {
+            Name:"Tom McGrath",
+            Bio:"is an American voice actor, animator, screenwriter, and film director."
+            Birth Year:"August 7, 1964"
+            Death Year:"/"
+          }
+        </td>
+      </tr>
 
+      <tr>
+        <td>Add a user</td>
+        <td>/movies/[User]</td>
+        <td>POST</td>
+        <td>A Jason object holding data about the user to add, structured like:
+          {
+            Name:"",
+            Username:"",
+            Date of Birth:"",
+            Password:"",
+            e-mail:""
+          }
+        </td>
+        <td>A Jason object holding data about the user that was added, including an ID:
+          {
+            ID:"",
+            Name:"",
+            Username:"",
+            Date of Birth:"",
+            Password:"",
+            e-mail:""
+          }
+        </td>
+      </tr>
 
+      <tr>
+        <td>Allow a user to update their information</td>
+        <td>/movies/[User]/[Update]</td>
+        <td>PUT</td>
+        <td>None</td>
+        <td>A text message indicating the user, Username, Date of Bearth, Password, email that was updated</td>
+      </tr>
 
+      <tr>
+        <td>Allow users to add a movie to their list of favorites </td>
+        <td>/movies/[User]/[Favorites]</td>
+        <td>POST</td>
+        <td>A Jason object containg a list of title's about the User's Favorite Movie. Structured as follows:
+          {
+            Title:"",
+            Title:"",
+          }
+        </td>
+        <td>A text message indicating that a movie has been added to their Favorite's list</td>
+      </tr>
 
+      <tr>
+        <td>Allow users to remove a movie from their list of favorites </td>
+        <td>/movies/[User]/[Favorites]/[Remove]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message indicating the user whether the movie was successfully removed from its favorite list</td>
+      </tr>
 
+      <tr>
+        <td>Allow existing users to deregister</td>
+        <td>/movies/[User]/[Deregister]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message indicating whether the user was successfully removed</td>
+      </tr>
     </table>
   </body>
 </html>
