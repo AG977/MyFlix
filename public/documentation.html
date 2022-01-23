@@ -66,7 +66,7 @@
 
       <tr>
         <td>Get data about a director</td>
-        <td>/movies/[Director]</td>
+        <td>/Directors</td>
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding data about a single Director, containg: Name, Bio, Date of Birth/Death. For example:
@@ -81,15 +81,16 @@
 
       <tr>
         <td>Add a user</td>
-        <td>/movies/[User]</td>
+        <td>/Users</td>
         <td>POST</td>
         <td>A Jason object holding data about the user to add, structured like:
           {
             Name:"",
             Username:"",
             Date of Birth:"",
-            Password:"",
             e-mail:""
+            Password:"",
+            favouriteMovies: []
           }
         </td>
         <td>A Jason object holding data about the user that was added, including an ID:
@@ -98,15 +99,16 @@
             Name:"",
             Username:"",
             Date of Birth:"",
-            Password:"",
             e-mail:""
+            Password:"",
+            favouriteMovies: []
           }
         </td>
       </tr>
 
       <tr>
         <td>Allow a user to update their information</td>
-        <td>/movies/[User]/[Update]</td>
+        <td>/users/:id</td>
         <td>PUT</td>
         <td>None</td>
         <td>A text message indicating the user, Username, Date of Bearth, Password, email that was updated</td>
@@ -114,7 +116,7 @@
 
       <tr>
         <td>Allow users to add a movie to their list of favorites </td>
-        <td>/movies/[User]/[Favorites]</td>
+        <td>/users/:name/:favoriteMovies/:newfavoriteMovies</td>
         <td>POST</td>
         <td>A Jason object containg a list of title's about the User's Favorite Movie. Structured as follows:
           {
@@ -127,7 +129,7 @@
 
       <tr>
         <td>Allow users to remove a movie from their list of favorites </td>
-        <td>/movies/[User]/[Favorites]/[Remove]</td>
+        <td>/users/:name/:favoriteMovies</td>
         <td>DELETE</td>
         <td>None</td>
         <td>A text message indicating the user whether the movie was successfully removed from its favorite list</td>
@@ -135,7 +137,7 @@
 
       <tr>
         <td>Allow existing users to deregister</td>
-        <td>/movies/[User]/[Deregister]</td>
+        <td>/Users/[Deregister]</td>
         <td>DELETE</td>
         <td>None</td>
         <td>A text message indicating whether the user was successfully removed</td>
