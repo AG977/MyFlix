@@ -204,9 +204,9 @@ app.get('/Movies', (req, res) => {
 });
 
 // Gets the data about a single Movie, by title
-app.get('/Movies/[Title]', (req, res) => {
-  res.json(Movies.find((title) =>
-    { return Movies.Title === req.params.Title }));
+app.get('/Movies/:Title', (req, res) => {
+  res.json(Movies.find((Title) =>
+    { return Movies.Title === req.params.Title }))
 });
 
 // Gets the data about a Movie, by genre
@@ -245,7 +245,7 @@ app.delete('/Users/[Deregister]', (req, res) => {
 });
 
 // Allow a User to update their information
-app.put('/users/:id'app, (req, res) => {
+app.put('/users/:id', (req, res) => {
     const { id } = req.params;
     const updatedUser = req.body;
 
