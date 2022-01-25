@@ -281,9 +281,9 @@ app.put('/users/:name/:newfavoritemovies', (req, res) => {
 
   if (user) {
     user.favoriteMovies.push(req.params.newfavoriteMovies);
-    res.send(req.params.newfavoriteMovies + " was added to your list of favourites");
+    res.send(req.params.newfavoriteMovies + ' was added to your list of favourites');
   } else {
-    res.status(404).send("Unable to add Movie to Favorites");
+    res.status(404).send('Unable to add Movie to Favorites');
   }
 });
 
@@ -299,9 +299,9 @@ app.delete('/users/:name/:favoritemovies', (req, res) => {
     if (index > -1) {
     favoriteMovies.splice(index, 1);
     }
-  res.send(req.params.favoriteMovies + "has been removed from the list");
+  res.send(req.params.favoriteMovies + 'has been removed from the list');
   } else {
-    res.status(404).send("Unable to remove at the moment");
+    res.status(404).send('Unable to remove at the moment');
   }
 });
 
