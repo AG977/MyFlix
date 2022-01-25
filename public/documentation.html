@@ -38,7 +38,7 @@
 
       <tr>
         <td>Get data about a single Movie by title</td>
-        <td>/movies/[title]</td>
+        <td>/movies/:title</td>
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding data about a single Movie, cntaining the Title, Description, Genre, Directors, and an image. For example:
@@ -53,7 +53,7 @@
 
       <tr>
         <td>Get data about a genre</td>
-        <td>/movies/[genre]</td>
+        <td>/movies/genre/:genreName</td>
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding data about the titles of the movies corresponding to the different genre's. For example:
@@ -66,7 +66,7 @@
 
       <tr>
         <td>Get data about a director</td>
-        <td>/Directors</td>
+        <td>/movies/directors/:directorName</td>
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding data about a single Director, containg: Name, Bio, Date of Birth/Death. For example:
@@ -81,7 +81,7 @@
 
       <tr>
         <td>Add a user</td>
-        <td>/Users</td>
+        <td>/users</td>
         <td>POST</td>
         <td>A Jason object holding data about the user to add, structured like:
           {
@@ -116,7 +116,7 @@
 
       <tr>
         <td>Allow users to add a movie to their list of favorites </td>
-        <td>/users/:name/:favoriteMovies/:newfavoriteMovies</td>
+        <td>/users/:name/:newfavoritemovies</td>
         <td>POST</td>
         <td>A Jason object containg a list of title's about the User's Favorite Movie. Structured as follows:
           {
@@ -129,7 +129,7 @@
 
       <tr>
         <td>Allow users to remove a movie from their list of favorites </td>
-        <td>/users/:name/:favoriteMovies</td>
+        <td>//users/:name/:favoritemovies</td>
         <td>DELETE</td>
         <td>None</td>
         <td>A text message indicating the user whether the movie was successfully removed from its favorite list</td>
@@ -137,7 +137,7 @@
 
       <tr>
         <td>Allow existing users to deregister</td>
-        <td>/Users/[Deregister]</td>
+        <td>/users/deregister</td>
         <td>DELETE</td>
         <td>None</td>
         <td>A text message indicating whether the user was successfully removed</td>
