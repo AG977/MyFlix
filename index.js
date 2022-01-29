@@ -216,7 +216,7 @@ app.get('/movies/genre/:genreName', (req, res) => {
   if (genre) {
     res.status(200).json(genre);
   } else {
-    res.status(404).send('Genre not found');
+    res.status(404).end('Genre not found');
   }
 });
 
@@ -230,7 +230,7 @@ app.get('/movies/directors/:directorName', (req, res) => {
   if (director) {
     res.status(200).json(director);
   } else {
-    res.status(404).send('Director not found');
+    res.status(404).end('Director not found');
   }
 });
 
@@ -250,10 +250,10 @@ app.post('/users', (req, res) => {
 
 // Deletes a User from our list by Email
 app.delete('/users/deregister', (req, res) => {
-    let User = Users.find((Users) => { return Users.Email === req.params.Email });
+    let user = users.find((users) => { return users.Email === req.params.Email });
 
-    if (User) {
-      User = Users.filter((obj) => { return obj.Email !== req.params.Email });
+    if (user) {
+      user = users.filter((obj) => { return obj.Email !== req.params.Email });
     res.status(201).send('Users ' + req.params.Email + ' was deleted.');
     }
 });
@@ -274,7 +274,7 @@ app.put('/users/:id', (req, res) => {
 });
 
 //Allow users to add a movie to their list of favorites
-app.put('/users/:name/:newfavoritemovies', (req, res) => {
+app.put('/users/:username/:newfavoritemovies', (req, res) => {
   let user = users.find((user) => {
     return user.Username === req.params.Username;
   });
@@ -288,7 +288,7 @@ app.put('/users/:name/:newfavoritemovies', (req, res) => {
 });
 
   //Allow users to remove a movie from their list of favorites
-app.delete('/users/:name/:favoritemovies', (req, res) => {
+app.delete('/users/:username/:favoritemovies', (req, res) => {
   let user = users.find((user) => {
     return user.Username === req.params.Username;
   });
