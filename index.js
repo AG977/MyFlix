@@ -202,12 +202,12 @@ app.use(express.static('public'));
 
 // Gets the list of data about ALL Movies
 app.get('/movies', (req, res) => {
-  movies.find().then(movies => res.json(movies));
+  Movies.find().then(movies => res.json(movies));
 });
 
 // Gets the data about a single Movie, by title
 app.get('/movies/:title', (req, res) => {
-  movies.findOne({ title: req.params.title })
+  Movies.findOne({ title: req.params.title })
     .then((movie) => {
       res.json(movie);
     })
@@ -219,7 +219,7 @@ app.get('/movies/:title', (req, res) => {
 
 // Gets the data about a Movie, by genre
 app.get('/movies/genre/:genreName', (req, res) => {
-  movies.findOne({ genre: req.params.genre.name})
+  Movies.findOne({ genre: req.params.genre.name})
     .then((movie) => {
       res.json(movie);
     })
@@ -232,7 +232,7 @@ app.get('/movies/genre/:genreName', (req, res) => {
 
 // Gets the data about a Director
 app.get('/movies/directors/:directorName', (req, res) => {
-  movies.findOne({ director: req.params.director.name})
+  Movies.findOne({ director: req.params.director.name})
     .then((movie) => {
       res.json(movie);
     })
