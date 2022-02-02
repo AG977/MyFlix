@@ -37,16 +37,31 @@
       </tr>
 
       <tr>
+        <td>Get a list of Users</td>
+        <td>/users</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about all the Users</td>
+      </tr>
+
+      <tr>
         <td>Get data about a single Movie by title</td>
         <td>/movies/:title</td>
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding data about a single Movie, cntaining the Title, Description, Genre, Directors, and an image. For example:
             {
-              Name:"Madagascar",
+              Title:"Madagascar",
               Description:"A group of animals who have spent all their life in a New York zoo end up in the jungles of Madagascar, and must adjust to living in the wild.",
-              Genre:"Family/Comedy",
-              Directors:"Tom McGrath, Eric Darnell"
+              Directors: {
+                Name:"Tom McGrath",
+                Bio:"",
+                BirthYear:""
+              }
+              Genre: {
+                Name:"Family",
+                Description:""
+              }
             }
         </td>
       </tr>
@@ -56,10 +71,12 @@
         <td>/movies/genre/:genreName</td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about the titles of the movies corresponding to the different genre's. For example:
+        <td>A JSON object holding data about the genre. For example:
           {
-            Genre:"Family/Comedy",
-            corresponding title's:"Madagascar"
+            Genre: {
+              Name:"Family",
+              Description:""
+            }
           }
         </td>
       </tr>
@@ -80,27 +97,41 @@
       </tr>
 
       <tr>
+        <td>Get a User by Username</td>
+        <td>/users/:Username</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about a single User, cntaining his/hers, Username, Password, Email, Date of Birth, and favoritemovies list. For example:
+            {
+              "Username": "Moka",
+              "Password": "Myflix123",
+              "Email": "123@google.com",
+              "DateOfBirth": "01/01/2020",
+              "FavoriteMovies": [""]
+            }
+        </td>
+      </tr>
+
+      <tr>
         <td>Add a user</td>
         <td>/users</td>
         <td>POST</td>
         <td>A Jason object holding data about the user to add, structured like:
           {
-            Name:"",
             Username:"",
-            Date of Birth:"",
-            e-mail:""
             Password:"",
+            Email:"",
+            DateOfBirth":"",
             favouriteMovies: []
           }
         </td>
         <td>A Jason object holding data about the user that was added, including an ID:
           {
             ID:"",
-            Name:"",
             Username:"",
-            Date of Birth:"",
-            e-mail:""
             Password:"",
+            Email:"",
+            DateOfBirth":"",
             favouriteMovies: []
           }
         </td>
@@ -108,39 +139,56 @@
 
       <tr>
         <td>Allow a user to update their information</td>
-        <td>/users/:id</td>
+        <td>/users/:Username</td>
         <td>PUT</td>
         <td>None</td>
-        <td>A text message indicating the user, Username, Date of Bearth, Password, email that was updated</td>
+        <td>A text message indicating the users: Username, Date of Birth, Password, email that was updated</td>
       </tr>
 
       <tr>
         <td>Allow users to add a movie to their list of favorites </td>
-        <td>/users/:name/:newfavoritemovies</td>
+        <td>/users/:Username/movies/:MovieID</td>
         <td>POST</td>
         <td>A Jason object containg a list of title's about the User's Favorite Movie. Structured as follows:
           {
-            Title:"",
-            Title:"",
+            favouriteMovies: ["", ""]
           }
         </td>
-        <td>A text message indicating that a movie has been added to their Favorite's list</td>
+        <td>A Jason object holding data about the user, adding the movie to the list of favorites by MovieID:
+          {
+            ID:"",
+            Username:"",
+            Password:"",
+            Email:"",
+            DateOfBirth":"",
+            favouriteMovies: [""]
+          }
+        </td>
       </tr>
 
       <tr>
         <td>Allow users to remove a movie from their list of favorites </td>
-        <td>//users/:name/:favoritemovies</td>
+        <td>/users/:Username/movies/:MovieID</td>
         <td>DELETE</td>
         <td>None</td>
-        <td>A text message indicating the user whether the movie was successfully removed from its favorite list</td>
+        <td>A Jason object holding data about the user, removing the movie of the list of favorites by MovieID:
+          {
+            ID:"",
+            Username:"",
+            Password:"",
+            Email:"",
+            DateOfBirth":"",
+            favouriteMovies: []
+          }
+        </td>
       </tr>
 
       <tr>
         <td>Allow existing users to deregister</td>
-        <td>/users/deregister</td>
+        <td>/users/:Username</td>
         <td>DELETE</td>
         <td>None</td>
-        <td>A text message indicating whether the user was successfully removed</td>
+        <td>A text message indicating whether the user was successfully deleted</td>
       </tr>
     </table>
   </body>
