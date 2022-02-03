@@ -68,11 +68,11 @@ app.get('/users', passport.authenticate('jwt', {session: false}), (req, res) => 
 app.get('/movies/:title', passport.authenticate('jwt', {session: false}), (req, res) => {
   Movies.findOne({ "Title": req.params.title })
     .then((movie) => {
-      res.json(movie);
+      res.status(201).json(movie);
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Error: Movie does not exist ' + err);
+      res.status(500).send('Error: ' + error);
     });
 });
 
@@ -80,11 +80,11 @@ app.get('/movies/:title', passport.authenticate('jwt', {session: false}), (req, 
 app.get('/movies/genre/:genreName', passport.authenticate('jwt', {session: false}), (req, res) => {
   Movies.findOne({ "Genre.Name": req.params.genreName})
     .then((movie) => {
-      res.json(movie.Genre);
+      res.status(201).json(movie.Genre);
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Error: genre does not exist ' + err);
+      res.status(500).send('Error: ' + error);
     });
 });
 
@@ -93,11 +93,11 @@ app.get('/movies/genre/:genreName', passport.authenticate('jwt', {session: false
 app.get('/movies/directors/:directorName', passport.authenticate('jwt', {session: false}), (req, res) => {
   Movies.findOne({ "Director.Name": req.params.directorName})
     .then((movie) => {
-      res.json(movie.Director);
+      res.status(201).json(movie.Director);
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Error: Director does not exist ' + err);
+      res.status(500).send('Error: ' + error);
     });
 });
 
@@ -105,7 +105,7 @@ app.get('/movies/directors/:directorName', passport.authenticate('jwt', {session
 app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
   Users.findOne({ "Username": req.params.Username })
     .then((user) => {
-      res.json(user);
+      res.status(201).json(user);
     })
     .catch((err) => {
       console.error(err);
