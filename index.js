@@ -41,23 +41,23 @@ app.use(express.static('public'));
 
 // Gets the list of data about ALL Movies
 app.get('/movies', (req, res) => {
-  Movies.find().then(movies => res.json(movies));
+  Movies.find().then(movies => res.status(201).json(movies));
 });
 
 // Gets the list of data about ALL Users
 app.get('/users', (req, res) => {
-  Users.find().then(users => res.json(users));
+  Users.find().then(users => res.status(201).json(users));
 });
 
 // Gets the data about a single Movie, by title
 app.get('/movies/:title', (req, res) => {
   Movies.findOne({ "Title": req.params.title })
     .then((movie) => {
-      res.json(movie);
+      res.status(201).json(movie);
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Error: Movie does not exist ' + err);
+      res.status(500).send('Error: ' + err);
     });
 });
 
@@ -65,11 +65,11 @@ app.get('/movies/:title', (req, res) => {
 app.get('/movies/genre/:genreName', (req, res) => {
   Movies.findOne({ "Genre.Name": req.params.genreName})
     .then((movie) => {
-      res.json(movie.Genre);
+      res.status(201).json(movie.Genre);
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Error: genre does not exist ' + err);
+      res.status(500).send('Error: ' + err);
     });
 });
 
@@ -78,11 +78,11 @@ app.get('/movies/genre/:genreName', (req, res) => {
 app.get('/movies/directors/:directorName', (req, res) => {
   Movies.findOne({ "Director.Name": req.params.directorName})
     .then((movie) => {
-      res.json(movie.Director);
+      res.status(201).json(movie.Director);
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Error: Director does not exist ' + err);
+      res.status(500).send('Error: ' + err);
     });
 });
 
@@ -90,7 +90,7 @@ app.get('/movies/directors/:directorName', (req, res) => {
 app.get('/users/:Username', (req, res) => {
   Users.findOne({ "Username": req.params.Username })
     .then((user) => {
-      res.json(user);
+      res.status(201).json(user);
     })
     .catch((err) => {
       console.error(err);
