@@ -34,7 +34,7 @@ app.use((err, req, res, next) => {
 
 // GET requests
 app.get('/', (req, res) => {
-  res.send('Welcome to MyFlix!');
+  res.status(201).send('Welcome to MyFlix!');
 });
 
 // express.static
@@ -191,7 +191,7 @@ app.put('/users/:Username', passport.authenticate('jwt', {session: false}), (req
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      res.json(updatedUser);
+      res.status(201).json(updatedUser);
     }
   });
 });
@@ -207,7 +207,7 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {sessi
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      res.json(updatedUser);
+      res.status(201).json(updatedUser);
     }
   });
 });
@@ -223,7 +223,7 @@ app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {ses
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      res.json(updatedUser);
+      res.status(201).json(updatedUser);
     }
   });
 });
