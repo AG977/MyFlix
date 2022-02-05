@@ -127,6 +127,7 @@ app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req
   Birthday: Date
 }*/
 app.post('/users', (req, res) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
@@ -134,7 +135,7 @@ app.post('/users', (req, res) => {
       } else {
         Users.create({
             Username: req.body.Username,
-            Password: req.body.Password,
+            Password: hashedPassword,
             Email: req.body.Email,
             DateOfBirth: req.body.DateOfBirth
           })
@@ -150,7 +151,6 @@ app.post('/users', (req, res) => {
       res.status(500).send('Error: ' + error);
     });
 });
-
 
 // Delete a user by username
 app.delete('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
