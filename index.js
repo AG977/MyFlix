@@ -33,7 +33,7 @@ app.use((err, req, res, next) => {
 
 // GET requests
 app.get('/', (req, res) => {
-  res.send('Welcome to MyFlix!');
+  res.status(201).send('Welcome to MyFlix!');
 });
 
 // express.static
@@ -176,7 +176,7 @@ app.put('/users/:Username', (req, res) => {
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      res.json(updatedUser);
+      res.status(201).json(updatedUser);
     }
   });
 });
@@ -192,7 +192,7 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      res.json(updatedUser);
+      res.status(201).json(updatedUser);
     }
   });
 });
@@ -208,7 +208,7 @@ app.delete('/users/:Username/movies/:MovieID', (req, res) => {
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      res.json(updatedUser);
+      res.status(201).json(updatedUser);
     }
   });
 });
