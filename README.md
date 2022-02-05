@@ -22,12 +22,6 @@ update their personal information, and create a list of their favorite movies.
 8. Allow users to remove a movie from their list of favorites
 9. Allow existing users to deregister
 
-##  *Optional Features:*
-1. Allow users to see which actors star in which movies
-2. Allow users to view information about different actors
-3. Allow users to view more information about different movies, such as the release date and the movie rating
-4. Allow users to create a “To Watch” list in addition to their “Favorite Movies” list
-
 ##  *Requirements:*
 1.  The API must be a Node.js and Express application.
 2.  The API must use REST architecture, with URL endpoints corresponding to the data
@@ -45,3 +39,6 @@ update their personal information, and create a list of their favorite movies.
 12. The API must meet data security regulations.
 13. The API source code must be deployed to a publicly accessible platform like GitHub.
 14. The API must be deployed to Heroku.
+
+##  *Endpoints Information:*
+If You want to see how the endpoints are implemented please take a look at the Documentation.html attached in this folder.
