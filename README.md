@@ -41,4 +41,16 @@ update their personal information, and create a list of their favorite movies.
 14. The API must be deployed to Heroku.
 
 ##  *Endpoints Information:*
-If You want to see how the endpoints are implemented please take a look at the Documentation.html attached in this folder.
+| Request                   |    URL                         |Method |    Request body     |               Response body                               |
+|        :---:              |    :---:                       |:---:  |       :---:         |                    :---:                                  |
+| Get a list of Movies      |  /movies                       | GET   |   None              |  A Json object holding data about all the Movies          |
+| Get a list of Users       |  /users                        | GET   |   None              |  A JSON object holding data about all the Users           |
+| Get Movie by title        |/movies/:title                  | GET   |   None              |  A JSON object holding details about a movie              |
+| Get data about genre      |/movies/genre/:genreName        | GET   |   None              |  A JSON object holding data about the genre               |
+|Get data about a Director  |/movies/directors/:directorName | GET   |   None              |  A JSON object holding data about a single Director       |
+|Get a User by Username     |/users/:Username                | GET   |   None              |  A JSON object holding data about a single User           |
+|Add a user                 |/users                          | POST  |JSON with users info |  A Jason object holding data about the user that was added|
+|Update user's info         |/users/:Username                | PUT   |   None              |  A Jason object holding updated information about User    |
+|Add movie to favorites     |/users/:Username/movies/:MovieID| POST  |Json with update info|  Success Message                                          |
+|Remove movie from favorites|/users/:Username/movies/:MovieID| DELETE|   None              |  Success Message                                          |
+|Delete user by Username    |/users/:Username                | DELETE|   None              |  Success Message                                          |
