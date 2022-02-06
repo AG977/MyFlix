@@ -40,7 +40,15 @@ update their personal information, and create a list of their favorite movies.
 13. The API source code must be deployed to a publicly accessible platform like GitHub.
 14. The API must be deployed to Heroku.
 
-##  *Endpoints Information:*
+##  *How to run this project:*
+1. Requires MongoDB
+2. Should use a local MongoDB server
+3. Create your Database
+
+##  *How to navigate on the API:*
+First you will have to create a new user, then LOGIN. Once Login has been done you shall be given a Bearer Token, copy this, as this will be you're authorization token that you will need to use in order to make any request from the endpoints (Table below). Enjoy!
+
+##  *Endpoints used in this project:*
 | Request                   |    URL                         |Method |    Request body     |               Response body                               |
 |        :---:              |    :---:                       |:---:  |       :---:         |                    :---:                                  |
 | Get a list of Movies      |  /movies                       | GET   |   None              |  A Json object holding data about all the Movies          |
