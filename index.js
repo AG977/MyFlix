@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 app.use(express.static('public'));
 
 // Gets the list of data about ALL Movies
-app.get('/movies', function(){
+app.get('/movies', () => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
