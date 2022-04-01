@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 app.use(express.static('public'));
 
 // Gets the list of data about ALL Movies
-app.get('/movies', passport.authenticate('jwt', {session: false}), (req, res) => {
+app.get('/movies', (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
