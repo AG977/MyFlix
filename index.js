@@ -232,7 +232,7 @@ app.put('/users/:Username', passport.authenticate('jwt', {session: false}),
       DateOfBirth: req.body.DateOfBirth
     }
   },
-  { new: true }, // This line makes sure that the updated document is returned
+  { new: true }, // This line makes sure that the updated document is returned.
   (err, updatedUser) => {
     if(err) {
       console.error(err);
